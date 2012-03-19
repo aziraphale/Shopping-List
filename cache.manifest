@@ -1,0 +1,23 @@
+<?php
+
+$files = array(
+    'jquery.min.js',
+    'jquery-ui.min.js',
+);
+$internalFiles = array(
+    'index.php',
+    'db.inc',
+);
+
+header('Content-Type: text/cache-manifest');
+
+$path = dirname($_SERVER['SCRIPT_NAME']);
+
+?>
+CACHE MANIFEST
+# Latest Modification Time: <?php echo date('r', max(array_merge(array_map("filemtime", $files), array_map("filemtime", $internalFiles)))) . "\r\n"; ?>
+<?php
+foreach ($files as $f) {
+    echo "$path/$f\r\n";
+}
+?>
