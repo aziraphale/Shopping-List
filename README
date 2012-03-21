@@ -1,0 +1,26 @@
+Simple Shopping List Web App
+=======================================
+
+This is a very simple shopping list Web app designed to be run on smartphones. I created it because I couldn't find an existing shopping list app that has the functionality I need without also being bloated with tons of functionality that I don't need, thus making the app overly complex to use.
+
+This app utilises the offline capabilities of HTML5 browsers to allow it to be used even without an Internet connection (which is important, given that both of our local supermarkets have extremely patchy mobile signal inside - I get that they're something of a Faraday cage, but it surely can't cost them much to stick a simple repeater or two on the ceiling...).
+
+
+Configuration
+-------------------
+The list of aisles and products is defined in `db.inc`. The contents of that file will be displayed exactly as ordered in the code, so you can use that to arrange the aisles in order of where they're physically located in the store.
+
+
+Usage
+-------------------
+First, at home, view the "Pick" tab and tick the items that you need to purchase on this trip. Changes will be automatically saved locally on your device.
+
+Then, once you arrive at the store, you can switch to the "List" tab to view the list of things that you picked previously on the "Pick" tab. As you take an item from the shelf in the store, you can mark it off on the list so that you can easily see what remains to be collected.
+
+Once you've finished, click the "Checkout" button to remove from the list all items that you have marked as being in your trolley/basket.
+
+
+Known Issues
+-------------------
+ * Saving changes is not 100% reliable. It usually works, but sometimes it will revert to an old list state.
+ * Tapping too frequently will cause "double-click" events to fire instead of "click" events. This results in items failing to be checked in Android 2.3.5+, and in the entire page zooming annoyingly in Android 2.3 (this is a bug in Android 2.3, whereby it ignores the HTML <meta> tag that should disable user-controlled zooming). This may be fixable by using mousedown events instead of click events (but I'm not sure how that works with touchscreens).
